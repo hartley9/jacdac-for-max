@@ -1,0 +1,9 @@
+{
+    "rotary encoder" : "JDServiceRotaryEncoder",
+    "button" : "JDServiceButton", 
+    "gamepad": "JDServiceGamepad",
+    "temperature": "JDServiceTemperature",
+    "humidity": "JDServiceHumidity",
+    "accelerometer": "JDServiceAccelerometer",
+    "flex": "JDServiceFlex"
+}
