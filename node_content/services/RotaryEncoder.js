@@ -21,8 +21,10 @@ exports.RotaryEncoder = function (service){
 
     const clickerReg = service.register(RotaryEncoderReg.Clicker)
     clickerReg.on(REPORT_UPDATE, () => {
+
         const [clicker] = clickerReg.unpackedValue;
         maxApi.outlet([service.maxID.toString(), 'clicker', clicker.toString()])
+        
     })
 
 

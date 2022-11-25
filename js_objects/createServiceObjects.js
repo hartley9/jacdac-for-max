@@ -28,6 +28,7 @@ function clearServiceObjects(){
 }
 function serviceToMaxObj(service){
 	// TODO USE JSON MAP INSTEAD OF BELOW
+
      switch(service){
 
         case 'rotary encoder':
@@ -46,6 +47,10 @@ function serviceToMaxObj(service){
 			return 'JDServiceLightLevel'
 		case 'flex':
 			return 'JDServiceFlex'
+		case 'slider': 
+			return 'JDServiceSlider'
+		case 'potentiometer':
+			return 'JDServicePotentiometer'
     } 
 
 	return null

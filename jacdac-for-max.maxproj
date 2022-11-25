@@ -2,7 +2,7 @@
 	"name" : "jacdac-for-max",
 	"version" : 1,
 	"creationdate" : 3723914097,
-	"modificationdate" : 3724321976,
+	"modificationdate" : 3742038290,
 	"viewrect" : [ 1083.0, 342.0, 300.0, 500.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
@@ -25,16 +25,71 @@
 				"kind" : "patcher",
 				"local" : 1
 			}
+,
+			"JDServiceButton.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceGamepad.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceLightLevel.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceRotaryEncoder.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServicePotentiometer.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+					"projectrelativepath" : "./max_objects"
+				}
+
+			}
+,
+			"JDBpatchGamepad.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceFlex.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceAccelerometer.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceHumidity.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceTemperature.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
 
 		}
 ,
 		"code" : 		{
-			"jacdac_connect.js" : 			{
+			"createServiceObjects.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
 ,
-			"createServiceObjects.js" : 			{
+			"jacdac_connect.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
@@ -54,7 +109,7 @@
 
 		}
 ,
-		"other" : 		{
+		"externals" : 		{
 
 		}
 

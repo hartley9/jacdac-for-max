@@ -6,11 +6,12 @@ exports.Button = function(service){
     const pressureReg = service.register(ButtonReg.Pressure)
     pressureReg.on(REPORT_UPDATE, () => {
         const [pressure] = pressureReg.unpackedValue
-        let pressureVal = 0;
-        if (pressure !== 0){
-            pressureVal = 1;
-        }
-        maxApi.outlet([service.maxID.toString(), "pressure", pressureVal.toString()])
+        
+        
+        
+            maxApi.outlet([service.maxID.toString(), "pressure", pressure.toString()])
+            
+        
     })
 
     // add analog register    

@@ -7,6 +7,7 @@ const { Accelerometer } = require('./Accelerometer');
 const { Humidity } = require('./Humidity');
 const { LightLevel } = require('./LightLevel');
 const { Flex } = require('./Flex');
+const { Potentiometer } = require('./Potentiometer');
 
 
 exports.serviceMap = function(service){
@@ -27,7 +28,7 @@ exports.serviceMap = function(service){
         LightLevel(service);
     } else if(service.serviceClass === jd.SRV_FLEX){
         Flex(service)
+    } else if (service.serviceClass === jd.SRV_POTENTIOMETER){
+        Potentiometer(service)
     }
-
-    
 }

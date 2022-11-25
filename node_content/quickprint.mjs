@@ -1,10 +1,10 @@
 // import { SRV_ROTARY_ENCODER, CONNECTION_STATE, DEVICE_ANNOUNCE, CHANGE, DISCONNECT, createNodeUSBOptions, createUSBBus, RotaryEncoderReg, ERROR, RegisterType, PACKET_RECEIVE} from "jacdac-ts";
-import * from "jacdac-ts"
+import * as jd from "jacdac-ts"
 
-const options = createNodeUSBOptions()
-const bus = createUSBBus(options);
+const options = jd.createNodeUSBOptions()
+const bus = jd.createUSBBus(options);
 
-bus.on(DEVICE_ANNOUNCE, (device) => {
+bus.on(jd.DEVICE_ANNOUNCE, (device) => {
 
 
 
@@ -15,7 +15,7 @@ bus.on(DEVICE_ANNOUNCE, (device) => {
 
         for (register of registers){
 
-            console.log(register)
+            console.log(register);
         }
     }
 })

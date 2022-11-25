@@ -5,5 +5,6 @@
     "temperature": "JDServiceTemperature",
     "humidity": "JDServiceHumidity",
     "accelerometer": "JDServiceAccelerometer",
-    "flex": "JDServiceFlex"
+    "flex": "JDServiceFlex",
+    "potentiometer": "JDServicePotentiometer"
 }

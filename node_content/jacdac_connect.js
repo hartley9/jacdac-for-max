@@ -25,12 +25,13 @@ bus.on(CONNECTION_STATE, () => {
 	
 })
 
+// Qualtified name --> service mapper
 bus.on(DEVICE_RESTART, () => {
   generateQualNameMap()
 })
 
 
-// module joins
+// device joins
 bus.on(DEVICE_ANNOUNCE, (device) => {  
   devices.push(device);
 
@@ -43,17 +44,13 @@ bus.on(DEVICE_ANNOUNCE, (device) => {
     serviceMap(service);
   }
   
-  // const services = bus.services();
   for (const service of services){
     maxApi.outlet('qualifiedName', service.qualifiedName);
     
-    var convQualName = service.qualifiedName.replace('[', '_').replace(']','')
+    let convQualName = service.qualifiedName.replace('[', '_').replace(']','')
     qualNameMap[convQualName] = service.name
-    /* console.log('qualNameMap')
-    console.log(qualNameMap) */
+    
     maxApi.outlet('qualNameMap', qualNameMap)
-
-
   }
 })
 
