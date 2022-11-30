@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generateNodeMax": "npx ts-node maxServiceObjectGenerator/generator.ts"
+    
+    "generate": "npm run rimraf && npx ts-node ./src/maxServiceObjectGenerator/generator.ts",
+    "rimraf": "npx ts-node ./src/maxServiceObjectGenerator/clearOutputDir.ts"
   },
   "keywords": [],
   "author": "",
