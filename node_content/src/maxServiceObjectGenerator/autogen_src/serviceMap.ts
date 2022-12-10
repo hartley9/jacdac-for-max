@@ -90,7 +90,7 @@ const {WindSpeed} = require('./WindSpeed');
 exports.serviceMap = function(service){
 
         if (service.serviceClass === null || service.serviceClass === undefined){
-            return 'SERVICE NOT DEFINED';
+        return 'SERVICE NOT DEFINED';
         }
         else if (service.serviceClass === 536870897){
             System(service)

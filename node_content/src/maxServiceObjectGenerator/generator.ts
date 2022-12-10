@@ -47,7 +47,7 @@ exports.${trimmedServiceName} = function(service){\n`
     
         packets.forEach(pkt => {
 
-            const {kind} = pkt;
+            const {kind, derived} = pkt;
 
             const packetInfo =  packInfo(service, pkt, {
                 isStatic: true,
@@ -62,11 +62,16 @@ exports.${trimmedServiceName} = function(service){\n`
             }); */
 
             let lineText = ''
-            if (kind === 'ro'){
+            if (!derived){
+            
+                if (kind === 'ro' ){
                 lineText = padRegisters(pkt, packetInfo)
-            } else{
-                lineText = buffers
-            }
+                } else if (kind === 'event'){
+                    lineText = padEvent(pkt, packetInfo)
+                }else{
+                    lineText = buffers
+                }
+        }
             
           
 
@@ -108,7 +113,7 @@ const cleanFileString = (str) => {
 
     for (let i=0; i<lines.length; i++){
         const line = lines[i];
-        //console.log('line: ', typeof line)
+        
 
       
         const found = removeLinesWithSubStrings.some((item) => {return line.includes(item)})
@@ -133,7 +138,7 @@ function padRegisters(packet, packetInfo){
     const {buffers, names, types, pyTypes, csTypes} = packetInfo;
 
     const camelCase = camelize(name);
-    console.log('camelCase', camelCase)
+    
 
     let stringToReturn = ``;
 
@@ -162,12 +167,30 @@ function padRegisters(packet, packetInfo){
 
         stringToReturn = stringToReturn.concat(createMaxOutlet(packet, packetInfo), NEWLINE, NEWLINE, report_update_string_suffix, NEWLINE)
 
-        console.log('string to return: ');
-        console.log(stringToReturn)
+        /* console.log('string to return: ');
+        console.log(stringToReturn) */
 
         return stringToReturn;
     }
 
+
+}
+
+function padEvent(packet, packetInfo){
+    const {kind, name} = packet; 
+    const {buffers, names, types, pyTypes, csTypes } = packetInfo;
+    
+    let stringToReturn = ''
+
+        console.log(name)
+        console.log("event: ");
+        console.log(buffers)
+
+    const camelCase = camelize(name);
+
+
+
+    return stringToReturn;
 
 }
 
@@ -198,10 +221,10 @@ function createMaxOutlet(packet, packetInfo){
 }
 
 
+
+
 function generateServiceMapFile(services){
 
-
-    
 
     let serviceMapHeader = `const jd = require('jacdac-ts');\n`
 
@@ -231,7 +254,7 @@ function generateServiceMapFile(services){
 
     serviceMapFunctionString += '\n}\n';
 
-    //console.log('mapfuncString: ', serviceMapFunctionString)
+    
 
 
     const prefix = './src/maxServiceObjectGenerator/autogen_src/'
