@@ -1,15 +1,17 @@
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
 const {CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT} = require("jacdac-ts");
-
+const {WebUSB} = require("usb")
 
 
 // console.clear();
-const options = createNodeUSBOptions()
+const options = createNodeUSBOptions(WebUSB)
 const bus = createUSBBus(options);
 
+const devices = bus.devices();
+
 let devDescriptions = []
-let devices = [];
+let deviceList = [];
 let qualNameMap = {}
 
 bus.connected ? bus.disconnect() : bus.connect();
@@ -19,10 +21,8 @@ bus.connected ? bus.disconnect() : bus.connect();
 bus.on(CONNECTION_STATE, () => {
     console.log(`connected: ${bus.connected}`)
 	if (bus.connected === true){
-    console.clear();
-    
+    console.clear(); 
   }
-	
 })
 
 // Qualtified name --> service mapper
@@ -33,7 +33,7 @@ bus.on(DEVICE_RESTART, () => {
 
 // device joins
 bus.on(DEVICE_ANNOUNCE, (device) => {  
-  devices.push(device);
+  deviceList.push(device);
 
   devDescriptions.push(device.describe());
 
@@ -46,11 +46,9 @@ bus.on(DEVICE_ANNOUNCE, (device) => {
   
   for (const service of services){
     maxApi.outlet('qualifiedName', service.qualifiedName);
-    
     let convQualName = service.qualifiedName.replace('[', '_').replace(']','')
     qualNameMap[convQualName] = service.name
-    
-    maxApi.outlet('qualNameMap', qualNameMap)
+    maxApi.outlet('qualNameMap', qualNameMap);
   }
 })
 
@@ -88,12 +86,37 @@ function generateQualNameMap(){
   qualNameMap = {};
   const services = bus.services();
   for (const service of services){
+  //if ()
   maxApi.outlet('qualifiedName', service.qualifiedName);
   
   var convQualName = service.qualifiedName.replace('[', '_').replace(']','')
-  qualNameMap[convQualName] = service.name
-
+  qualNameMap[convQualName] = service.name;
+  console.log('service here: ', service.name)
   maxApi.outlet('qualNameMap', qualNameMap)
 
+  console.log('qualNameMap: ')
+  console.log(qualNameMap)
+
+  //const devices = bus.devices();
+  console.log('devices');
+  console.log(devices)
+
   }
+}
+
+
+maxApi.addHandler("descriptions", () => {returnDeviceDescriptions()})
+function returnDeviceDescriptions(){
+  //const devices = bus.devices();
+
+  let stringToReturn = '';
+
+  let deviceDescriptionDict = new Object();
+
+
+  for (const device of devices){
+    deviceDescriptionDict[`${device.id}`] = device.describe();
+  }
+
+  maxApi.outlet("DeviceDescriptions", deviceDescriptionDict)
 }
