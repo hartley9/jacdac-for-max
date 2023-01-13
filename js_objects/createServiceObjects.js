@@ -15,21 +15,20 @@ function clearServiceObjects(){
 	post('in clear objects')
 	var k = qualNameMap.getkeys();
 	for (var obj=0; obj<k.length; obj++){
-		post()
 		post('key')
-		post()
 		post(k[obj]);
-		post()
-		post()
-		this.patcher.remove(objects[k[obj]])
+		
+		this.patcher.parentpatcher.remove(objects[k[obj]])
 	}
 	
 	objects = {}
 }
 function serviceToMaxObj(service){
 	// TODO USE JSON MAP INSTEAD OF BELOW
-
-     switch(service){
+	post(reference[service])
+	return reference[service]; 
+	
+    /*  switch(service){
 
         case 'rotary encoder':
             return 'JDServiceRotaryEncoder'
@@ -51,7 +50,14 @@ function serviceToMaxObj(service){
 			return 'JDServiceSlider'
 		case 'potentiometer':
 			return 'JDServicePotentiometer'
-    } 
+		case 'equivalent co₂':
+			return 'JDServiceECO2'
+		
+    }  */
+
+	if (service.charAt(0).toLowerCase() === 'e'){
+		
+	}
 
 	return null
 }
@@ -61,11 +67,11 @@ function getObjects(){
 }
 
 
-function setQualNameMap(placeholder){
+ function setQualNameMap(placeholder){
 
 	qualNameMap = new Dict("qualNameMap");
     
-}
+} 
 
 
 function getServiceObjects(){
@@ -87,17 +93,18 @@ function getServiceObjects(){
 		if (serviceToMaxObj(item) !== undefined && serviceToMaxObj(item) !== null && serviceToMaxObj(item).length > 0)
 			{
 				// does device && service max object instance already exist?
-
 				if (objects[k[i]] === undefined){
 					
 					// var nameOfObjectToSpawn =
-					objects[k[i]] = this.patcher.newdefault(100, 100, serviceToMaxObj(item), k[i]);
+					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 100, serviceToMaxObj(item), k[i]);
 				//	post(JSON.stringify(objects))
 				} else {
 					post('already exists')
 				}
 				
 			
+			}else {
+				post('unknown item: ', item)
 			}
 	}
 	
@@ -105,3 +112,43 @@ function getServiceObjects(){
 
 }
 	
+
+
+var reference = {
+	"accelerometer" : "JDServiceAccelerometer",
+	"arcade gamepad" : "JDServiceArcadeGamepad",
+	"barometer" : "JDServiceBarometer",
+	"button" : "JDServiceButton",
+	"color" : "JDServiceColor",
+	"compass" : "JDServiceCompass",
+	"distance" : "JDServiceDistance",
+	"equivalent co₂" : "JDServiceECO2",
+	"flex" : "JDServiceFlex",
+	"gamepad" : "JDServiceGamepad",
+	"gyroscope" : "JDServiceGyroscope",
+	"heart rate" : "JDServiceHeartRate",
+	"humidity" : "JDServiceHumidity",
+	"illuminance" : "JDServiceIlluminance",
+	"light level" : "JDServiceLightLevel",
+	"magnetometer" : "JDServiceMagnetometer",
+	"matrix keypad" : "JDServiceMatrixKeypad",
+	"motion" : "JDServiceMotion",
+	"potentiometer" : "JDServicePotentiometer",
+	"pulse oximeter" : "JDServicePulseOximeter",
+	"rain gauge" : "JDServiceRainGauge",
+	"real time clock" : "JDServiceRealTimeClock",
+	"reflected light" : "JDServiceReflectedLight",
+	"rotary encoder" : "JDServiceRotaryEncoder",
+	"rover" : "JDServiceRover",
+	"soil moisture" : "JDServiceSoilMoisture",
+	"sound level" : "JDServiceSoundLevel",
+	"sound spectrum" : "JDServiceSoundSpectrum",
+	"switch" : "JDServiceSwitch",
+	"temperature" : "JDServiceTemperature",
+	"total volatile organic compound" : "JDServiceTvoc",
+	"uv index" : "JDServiceUvIndex",
+	"water level" : "JDServiceWaterLevel",
+	"weight scale" : "JDServiceWeightScale",
+	"wind direction" : "JDServiceWindDirection",
+	"wind speed" : "JDServiceWindSpeed"
+	}

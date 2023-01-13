@@ -1,7 +1,10 @@
 const {CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT} = require("jacdac-ts");
+const {WebUSB} = require("usb")
 
 
-const options = createNodeUSBOptions();
+// console.clear();
+
+const options = createNodeUSBOptions(WebUSB)
 const bus = createUSBBus(options);
 
 let devDescriptions = []

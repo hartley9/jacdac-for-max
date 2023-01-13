@@ -5,6 +5,7 @@ const {WebUSB} = require("usb")
 
 
 // console.clear();
+
 const options = createNodeUSBOptions(WebUSB)
 const bus = createUSBBus(options);
 
@@ -35,19 +36,24 @@ bus.on(DEVICE_RESTART, () => {
 bus.on(DEVICE_ANNOUNCE, (device) => {  
   deviceList.push(device);
 
-  devDescriptions.push(device.describe());
+  devDescriptions.push(JSON.parse(JSON.stringify(device.describe())));
 
   const services = bus.services();
 
   for (const service of services){
     service.maxID = service.qualifiedName.replace('[', '_').replace(']','');
-    serviceMap(service);
+
+    console.log('name: ', service.name)
+    maxApi.outlet('devDesc', JSON.stringify(devDescriptions))
+    const servMap = serviceMap(service);
+    console.log('servMap: ', servMap)
   }
   
   for (const service of services){
     maxApi.outlet('qualifiedName', service.qualifiedName);
     let convQualName = service.qualifiedName.replace('[', '_').replace(']','')
-    qualNameMap[convQualName] = service.name
+    qualNameMap[convQualName] = service.name 
+    console.log('service: ', service.name)
     maxApi.outlet('qualNameMap', qualNameMap);
   }
 })

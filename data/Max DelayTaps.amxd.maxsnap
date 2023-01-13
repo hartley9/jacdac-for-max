@@ -1,0 +1,37 @@
+{
+	"filetype" : "C74Snapshot",
+	"version" : 2,
+	"minorversion" : 0,
+	"name" : "Max DelayTaps.amxd",
+	"origin" : "Max DelayTaps.amxd",
+	"type" : "amxd",
+	"subtype" : "Undefined",
+	"embed" : 0,
+	"snapshot" : 	{
+		"name" : "Max DelayTaps.amxd",
+		"origname" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Max DelayTaps/Max DelayTaps.amxd",
+		"valuedictionary" : 		{
+			"parameter_values" : 			{
+				"DelaysMax" : 2483.533385336362244,
+				"DelaysMin" : 0.0,
+				"Dry/Wet" : 50.0,
+				"Feedback" : 50.0,
+				"LevelsMax" : 100.0,
+				"LevelsMin" : 0.0,
+				"MasterGain" : 0.0,
+				"PansMax" : 50.0,
+				"PansMin" : -50.0,
+				"blob" : 				{
+					"Taps" : [ 8 ],
+					"Delays" : [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+					"Levels" : [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+					"Pans" : [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

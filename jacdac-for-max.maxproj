@@ -2,8 +2,8 @@
 	"name" : "jacdac-for-max",
 	"version" : 1,
 	"creationdate" : 3723914097,
-	"modificationdate" : 3742038290,
-	"viewrect" : [ 1083.0, 342.0, 300.0, 500.0 ],
+	"modificationdate" : 3754297102,
+	"viewrect" : [ 1083.0, 341.0, 300.0, 500.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -31,6 +31,11 @@
 				"local" : 1
 			}
 ,
+			"JDServiceECO2.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
 			"JDServiceGamepad.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
@@ -41,37 +46,12 @@
 				"local" : 1
 			}
 ,
-			"JDServiceRotaryEncoder.maxpat" : 			{
-				"kind" : "patcher",
-				"local" : 1
-			}
-,
 			"JDServicePotentiometer.maxpat" : 			{
 				"kind" : "patcher",
-				"local" : 1,
-				"singleton" : 				{
-					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
-					"projectrelativepath" : "./max_objects"
-				}
-
-			}
-,
-			"JDBpatchGamepad.maxpat" : 			{
-				"kind" : "patcher",
 				"local" : 1
 			}
 ,
-			"JDServiceFlex.maxpat" : 			{
-				"kind" : "patcher",
-				"local" : 1
-			}
-,
-			"JDServiceAccelerometer.maxpat" : 			{
-				"kind" : "patcher",
-				"local" : 1
-			}
-,
-			"JDServiceHumidity.maxpat" : 			{
+			"JDServiceRotaryEncoder.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
 			}
@@ -79,6 +59,186 @@
 			"JDServiceTemperature.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
+			}
+,
+			"JDBpatchGamepad.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/max_objects"
+				}
+
+			}
+,
+			"JDServiceFlex.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/max_objects"
+				}
+
+			}
+,
+			"JDServiceAccelerometer.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/max_objects"
+				}
+
+			}
+,
+			"JDServiceHumidity.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/max_objects"
+				}
+
+			}
+,
+			"JDServiceWindDirection.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceWindSpeed.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceWeightScale.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceWaterLevel.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceUvIndex.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceTvoc.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceSwitch.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceSoundSpectrum.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceSoundLevel.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceSoilMoisture.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceRover.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceReflectedLight.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceRealTimeClock.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceRainGauge.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServicePulseOximeter.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceMotion.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceMatrixKeypad.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceMagnetometer.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceIlluminance.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceHeartRate.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceGyroscope.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceDistance.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceCompass.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceColor.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceBarometer.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"JDServiceArcadeGamepad.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"jacdac-for-max.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1,
+				"singleton" : 				{
+					"bootpath" : "~/Documents/jacdac-max/jacdac-for-max",
+					"projectrelativepath" : "."
+				}
+
 			}
 
 		}
@@ -102,14 +262,10 @@
 				"local" : 1,
 				"singleton" : 				{
 					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/js_objects",
-					"projectrelativepath" : "./js_objects"
+					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/js_objects"
 				}
 
 			}
-
-		}
-,
-		"externals" : 		{
 
 		}
 
@@ -121,7 +277,7 @@
 ,
 	"searchpath" : 	{
 		"0" : 		{
-			"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/node_content",
+			"bootpath" : "~/Documents/jacdac-max/jacdac-for-max/node_content",
 			"projectrelativepath" : "./node_content",
 			"label" : "",
 			"recursive" : 1,
@@ -130,7 +286,7 @@
 		}
 ,
 		"1" : 		{
-			"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
+			"bootpath" : "~/Documents/jacdac-max/jacdac-for-max/max_objects",
 			"projectrelativepath" : "./max_objects",
 			"label" : "maxObjects",
 			"recursive" : 1,
