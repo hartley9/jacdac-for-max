@@ -27,33 +27,6 @@ function serviceToMaxObj(service){
 	// TODO USE JSON MAP INSTEAD OF BELOW
 	post(reference[service])
 	return reference[service]; 
-	
-    /*  switch(service){
-
-        case 'rotary encoder':
-            return 'JDServiceRotaryEncoder'
-        case 'button': 
-            return 'JDServiceButton'
-		case 'gamepad':
-			return 'JDServiceGamepad'
-		case 'temperature':
-			return 'JDServiceTemperature'
-		case 'humidity':
-			return 'JDServiceHumidity'
-		case 'accelerometer':
-			return 'JDServiceAccelerometer'
-		case 'light level':
-			return 'JDServiceLightLevel'
-		case 'flex':
-			return 'JDServiceFlex'
-		case 'slider': 
-			return 'JDServiceSlider'
-		case 'potentiometer':
-			return 'JDServicePotentiometer'
-		case 'equivalent co₂':
-			return 'JDServiceECO2'
-		
-    }  */
 
 	if (service.charAt(0).toLowerCase() === 'e'){
 		
@@ -84,6 +57,9 @@ function getServiceObjects(){
 	post('k');	
 	post(k);
 
+	var heightCounter = 0;
+	var objOffset = 60;
+
 	for(i = 0; i < k.length; i++){
 		
 		var item  = qualNameMap.get(k[i])
@@ -96,8 +72,10 @@ function getServiceObjects(){
 				if (objects[k[i]] === undefined){
 					
 					// var nameOfObjectToSpawn =
-					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 100, serviceToMaxObj(item), k[i]);
+					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 100 + (objOffset * heightCounter), serviceToMaxObj(item), k[i]);
 				//	post(JSON.stringify(objects))
+
+				heightCounter++;
 				} else {
 					post('already exists')
 				}

@@ -1,7 +1,26 @@
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
-const {CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT} = require("jacdac-ts");
+const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT} = require("jacdac-ts");
 const {WebUSB} = require("usb")
+
+const readline = require("readline")
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  terminal: false
+})
+
+rl.on("line", async line => {
+  // This will be posted to the Max console
+  const items = line.split(' ');
+  maxApi.post(line)
+  maxApi.post(items)
+  if (items[0].includes('identify')){
+    maxApi.post(line[0])
+    await identify(items[1].split('_')[0]);
+  }
+})
+
 
 
 // console.clear();
@@ -43,17 +62,17 @@ bus.on(DEVICE_ANNOUNCE, (device) => {
   for (const service of services){
     service.maxID = service.qualifiedName.replace('[', '_').replace(']','');
 
-    console.log('name: ', service.name)
+    
     maxApi.outlet('devDesc', JSON.stringify(devDescriptions))
     const servMap = serviceMap(service);
-    console.log('servMap: ', servMap)
+    
   }
   
   for (const service of services){
     maxApi.outlet('qualifiedName', service.qualifiedName);
     let convQualName = service.qualifiedName.replace('[', '_').replace(']','')
     qualNameMap[convQualName] = service.name 
-    console.log('service: ', service.name)
+    
     maxApi.outlet('qualNameMap', qualNameMap);
   }
 })
@@ -97,18 +116,33 @@ function generateQualNameMap(){
   
   var convQualName = service.qualifiedName.replace('[', '_').replace(']','')
   qualNameMap[convQualName] = service.name;
-  console.log('service here: ', service.name)
+  
   maxApi.outlet('qualNameMap', qualNameMap)
-
-  console.log('qualNameMap: ')
-  console.log(qualNameMap)
-
   //const devices = bus.devices();
-  console.log('devices');
-  console.log(devices)
+  
 
   }
 }
+
+maxApi.addHandler("identify", () => {identify()})
+function identify(devFriendlyName){
+
+  console.log('in device')
+  console.log(devFriendlyName)
+  const devices = bus.devices();
+  devices.forEach(dev =>{
+    console.log(dev.friendlyName)
+    if (dev.friendlyName === devFriendlyName){
+      console.log('found service')
+      console.log(JSON.stringify(dev.qualifiedName))
+      //await ControlReg.sendSetPackedAsync()
+
+      dev.identify();
+    }
+  })
+}
+
+
 
 
 maxApi.addHandler("descriptions", () => {returnDeviceDescriptions()})

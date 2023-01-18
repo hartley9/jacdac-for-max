@@ -2,7 +2,7 @@
 	"name" : "jacdac-for-max",
 	"version" : 1,
 	"creationdate" : 3723914097,
-	"modificationdate" : 3754297102,
+	"modificationdate" : 3756664533,
 	"viewrect" : [ 1083.0, 341.0, 300.0, 500.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
@@ -41,6 +41,11 @@
 				"local" : 1
 			}
 ,
+			"JDServiceHumidity.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
 			"JDServiceLightLevel.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
@@ -57,6 +62,11 @@
 			}
 ,
 			"JDServiceTemperature.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"jacdac-for-max.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
 			}
@@ -82,16 +92,6 @@
 			}
 ,
 			"JDServiceAccelerometer.maxpat" : 			{
-				"kind" : "patcher",
-				"local" : 1,
-				"singleton" : 				{
-					"bootpath" : "~/Documents/Max 8/Projects/jacdac-for-max/max_objects",
-					"projectrelativepath" : "../../Max 8/Projects/jacdac-for-max/max_objects"
-				}
-
-			}
-,
-			"JDServiceHumidity.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1,
 				"singleton" : 				{
@@ -231,12 +231,20 @@
 				"local" : 1
 			}
 ,
-			"jacdac-for-max.maxpat" : 			{
+			"Example 1.maxpat" : 			{
 				"kind" : "patcher",
+				"local" : 1
+			}
+
+		}
+,
+		"media" : 		{
+			"MSC_GrandEm-C11.wav" : 			{
+				"kind" : "audiofile",
 				"local" : 1,
 				"singleton" : 				{
-					"bootpath" : "~/Documents/jacdac-max/jacdac-for-max",
-					"projectrelativepath" : "."
+					"bootpath" : "~/Downloads/Mammoth Synth Chords/Chord Hits/C",
+					"projectrelativepath" : "../../../Downloads/Mammoth Synth Chords/Chord Hits/C"
 				}
 
 			}
