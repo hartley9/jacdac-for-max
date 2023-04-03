@@ -22,11 +22,15 @@ rl.on("line", async line => {
 })
 
 
-
-// console.clear();
-
-const options = createNodeUSBOptions(WebUSB)
+const options = createNodeUSBOptions(WebUSB);
 const bus = createUSBBus(options);
+
+
+//const serialport = require("serialport");
+
+
+
+
 
 const devices = bus.devices();
 
