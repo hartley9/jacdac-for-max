@@ -1,7 +1,3 @@
-require('module').Module._nodeModulePaths(__dirname).forEach(p => {
-    if (!module.paths.includes(p)) module.paths.push(p);
-});
-
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
 const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");

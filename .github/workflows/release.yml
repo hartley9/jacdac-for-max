@@ -24,7 +24,7 @@ jobs:
 
       - name: Create release zip
         run: |
-          zip -r ../jacdac-for-max-${{ github.ref_name }}.zip . \
+          zip -r ./jacdac-for-max-${{ github.ref_name }}.zip . \
             --exclude "*.git*" \
             --exclude "node_content/src/*" \
             --exclude "*.DS_Store"
