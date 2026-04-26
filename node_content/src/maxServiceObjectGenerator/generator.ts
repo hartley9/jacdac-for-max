@@ -31,10 +31,6 @@ const generateFiles = () => {
         const packets = service.packets.filter(pkt => !pkt.derived);
         const registers = packets.filter(isRegister);
 
-
-       
-       
-
         const contentSuf = `\n\n}\n\n export {};`
 
         const filename = service.camelName.charAt(0).toUpperCase() + service.camelName.slice(1);
