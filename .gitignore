@@ -4,3 +4,4 @@ maxServiceObjectGenerator/output/
 **/.DS_Store
 **/*.maxsnap
 max_objects/
+node_content/node_modules/
