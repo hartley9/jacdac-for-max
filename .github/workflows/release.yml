@@ -18,17 +18,12 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install production dependencies
-        run: npm install --omit=dev
-        working-directory: node_content
-
       - name: Create release zip
         run: |
           zip -r ./jacdac-for-max-${{ github.ref_name }}.zip . \
             --exclude "*.git*" \
             --exclude "node_content/src/*" \
-            --exclude "node_content/node_modules/jacdac-ts/src/*" \
-            --exclude "node_content/node_modules/jacdac-ts/jacdac-spec/*" \
+            --exclude "node_content/node_modules/*" \
             --exclude "*.DS_Store"
         working-directory: .
 

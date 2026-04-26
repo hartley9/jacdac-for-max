@@ -38,22 +38,21 @@ jacdac-for-max/
 
 ### Setup
 
-1. **Clone and install**
+1. **Download** the latest release zip from the [Releases page](https://github.com/hartley9/jacdac-for-max/releases) and extract it into your Max Library folder (`~/Documents/Max 8/Library/` or `~/Documents/Max 9/Library/`)
+
+2. **Install dependencies** — open Terminal and run:
 ```bash
-git clone https://github.com/hartley9/jacdac-for-max
-cd jacdac-for-max/node_content
-npm install
+~/Documents/Max\ 9/Library/jacdac-for-max/setup.sh
 ```
+This compiles the native Node.js modules on your machine (required to avoid macOS security warnings). You only need to do this once.
 
-2. **Open the example project**
-- Launch Max
-- Open `jacdac-for-max.maxproj`
+3. **Open the project** — launch Max and open `jacdac-for-max.maxproj`
 
-3. **Connect your Jacdac device** to your computer via USB
+4. **Connect your Jacdac device** via USB
 
-4. **Run the server** inside Max (start the node.js context)
+5. **Run the server** inside Max (start the node.js context)
 
-5. **Use the Max objects** - drag them into your patch to stream sensor data
+6. **Use the Max objects** — drag them into your patch to stream sensor data
 
 ## Development
 
