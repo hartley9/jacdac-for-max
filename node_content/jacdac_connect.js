@@ -1,6 +1,6 @@
-const path = require('path');
-process.env.NODE_PATH = path.resolve(__dirname, 'node_modules');
-require('module').Module._initPaths();
+require('module').Module._nodeModulePaths(__dirname).forEach(p => {
+    if (!module.paths.includes(p)) module.paths.push(p);
+});
 
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
