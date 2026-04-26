@@ -1,8 +1,8 @@
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
-const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT} = require("jacdac-ts");
+const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");
 const {WebUSB} = require("usb")
-
+const {SerialPort} = require("serialport")
 const readline = require("readline")
 
 const rl = readline.createInterface({
@@ -21,16 +21,12 @@ rl.on("line", async line => {
   }
 })
 
+// TODO: add web serial transport
+//const bus = new JDBus([createNodeWebSerialTransport(SerialPort)]);
+//const serialport = require("serialport");
 
 const options = createNodeUSBOptions(WebUSB);
 const bus = createUSBBus(options);
-
-
-//const serialport = require("serialport");
-
-
-
-
 
 const devices = bus.devices();
 
@@ -85,7 +81,6 @@ bus.on(DEVICE_ANNOUNCE, (device) => {
 // Resolve service, can i find service for existing service index
 // bus.services()
 // bus.device(deviceID)
-//
 
 // RoleManager -> maps name to serviceID, look into this
 // 

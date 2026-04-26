@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 865.0, 268.0, 640.0, 480.0 ],
+		"rect" : [ 865.0, 268.0, 232.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -191,8 +191,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 150.0, 150.0, 51.0, 22.0 ],
-					"text" : "ZN93_1"
+					"patching_rect" : [ 150.0, 150.0, 129.0, 22.0 ],
+					"text" : "GK09.potentiometer_0"
 				}
 
 			}
@@ -234,7 +234,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "positionEvent: number",
+					"comment" : "positionRegister: number",
 					"id" : "position_outlet",
 					"index" : 1,
 					"maxclass" : "outlet",
@@ -346,7 +346,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "idMessage", 1 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-3", 0 ]
 				}
 
@@ -354,7 +354,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"order" : 0,
+					"order" : 1,
 					"source" : [ "obj-3", 0 ]
 				}
 

@@ -1,80 +1,109 @@
 
-# Jacac-For-Max
-**Jacdac-for-max** is a combination of node.js scripts and custom Max objects which enable the use of [**Jacdac**](https://aka.ms/jacdac), a modular plug-and-play hardware prototyping platform, with Max a visual programming language frequently used for audio-visual applications. 
+# Jacdac-for-Max
 
+**Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media. 
 
+This project combines Node.js scripts with custom Max objects to provide real-time sensor data and control over 40+ Jacdac services including accelerometers, buttons, gamepads, temperature sensors, and more.
 
-# Getting started
-This repository contains an example Max project: [jacdac-for-max.maxproj](./jacdac-for-max.maxproj).
+## Features
 
-Open this project, and connect your jacdac device to your computer. You can
+- **40+ pre-built Max objects** for common Jacdac services
+- **Auto-generation** of Max objects from Jacdac service definitions
+- **Real-time sensor data** streaming directly to Max patches
+- **Easy integration** - just add objects to your Max patch and connect devices
 
-
-## Developer setup
-
--   clone this repository and pull all submodules
+## Project Structure
 
 ```
+jacdac-for-max/
+├── node_content/          # Node.js server and TypeScript source
+│   ├── src/              # Source code for generators
+│   ├── services/         # Generated Node.js service modules, this code sits inside a JDService object when a relevent service is detected
+│   └── package.json
+├── max_objects/          # Generated Max objects (one per Jacdac service)
+│   ├── JDServiceAccelerometer.maxpat
+│   ├── JDServiceButton.maxpat
+│   └── ... (40+ more)
+├── js_objects/           # JavaScript/TypeScript utilities
+├── examples/             # Example Max patches
+└── jacdac-for-max.maxproj  # Main Max project
+```
+
+## Quick Start
+
+### Prerequisites
+- [Max 8+](https://cycling74.com/products/max)
+- [Node.js 18+](https://nodejs.org/)
+- Jacdac hardware device
+
+### Setup
+
+1. **Clone and install**
+```bash
 git clone https://github.com/hartley9/jacdac-for-max
 cd jacdac-for-max/node_content
-```
-
--   install node.js
-
-
--   install dependencies
-
-```
 npm install
 ```
 
-### Visual Studio Code
+2. **Open the example project**
+- Launch Max
+- Open `jacdac-for-max.maxproj`
 
-You are welcome to use any editor you want! Visual Studio Code
-provides seamless support for git sub-modules and is our preferred editor.
+3. **Connect your Jacdac device** to your computer via USB
 
--   open [Visual Studio Code](https://code.visualstudio.com/)
+4. **Run the server** inside Max (start the node.js context)
 
-```
-code .
-```
+5. **Use the Max objects** - drag them into your patch to stream sensor data
 
-### Launch Example
+## Development
 
-To see an example of how this works launch the jacdac-for-max.maxproj file, this will open as a Max project containing a number of files. 
+### Building
 
+Generate Max objects and Node.js modules from Jacdac service definitions:
 
-### Generating NodeJS Snippets and jacdac-for-max Max Objects
-To regeneratre both the node-js snippets and jacdac-for-max objects.
-
-```
+```bash
+cd node_content
 npm run generate
 ```
 
-otherwise to generate just nodejs snippets
+This regenerates both Node.js snippets and all Max objects based on the latest Jacdac services.
 
-```
-npm run generate_nodejs_snippets
-```
-
-or the Max objects
-
-```
-npm run generate_max_objects
+Other build commands:
+```bash
+npm run generatePats          # Generate only Max patches
+npm run rimraf                # Clear output directory
+npm build                     # Build TypeScript to JavaScript
 ```
 
+### Using VS Code
 
-### Jacdac + MakeCode
+Visual Studio Code is recommended for development:
 
-### Local build
-
-Run this command to rebuild the makecode packages
-
-```
-yarn buildpxt
+```bash
+code .
 ```
 
-### HTML Tools
+## Troubleshooting
+
+### `npm run generate` crashes
+- Run `npm install` to ensure local dependencies are installed
+- The `--transpile-only` flag is already configured
+- Check that `node_modules/@cspotcode/source-map-support` exists
+
+### Max objects not updating
+- Run `npm run generate` again
+- Restart the Max JS context (Cmd-Period on Mac)
+- Clear Max's cache: **Max > Preferences > File Preferences**
+
+## Resources
+
+- [Jacdac Documentation](https://jacdac.github.io/jacdac-docs/)
+- [Max Documentation](https://cycling74.com/docs/max8)
+- [Jacdac Examples](https://aka.ms/jacdac-devices)
+
+## License
+
+See [LICENSE](./LICENSE) for details.
 
 
 

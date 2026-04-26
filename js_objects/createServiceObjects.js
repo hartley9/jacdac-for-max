@@ -12,7 +12,7 @@ function setJDServiceToMaxMap(){
 }
 
 function clearServiceObjects(){
-	post('in clear objects')
+	
 	var k = qualNameMap.getkeys();
 	for (var obj=0; obj<k.length; obj++){
 		post('key')
@@ -25,7 +25,7 @@ function clearServiceObjects(){
 }
 function serviceToMaxObj(service){
 	// TODO USE JSON MAP INSTEAD OF BELOW
-	post(reference[service])
+	post('ref ' + reference[service])
 	return reference[service]; 
 
 	if (service.charAt(0).toLowerCase() === 'e'){
@@ -49,16 +49,16 @@ function getObjects(){
 
 function getServiceObjects(){
 
-	post('in get serv');
+	post('qualified name map: ')
 	post(qualNameMap.stringify())
 
 	
 	var k = qualNameMap.getkeys();
-	post('k');	
+	post('keys:');	
 	post(k);
 
 	var heightCounter = 0;
-	var objOffset = 60;
+	var objOffset = 80;
 
 	for(i = 0; i < k.length; i++){
 		
@@ -72,12 +72,11 @@ function getServiceObjects(){
 				if (objects[k[i]] === undefined){
 					
 					// var nameOfObjectToSpawn =
-					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 100 + (objOffset * heightCounter), serviceToMaxObj(item), k[i]);
-				//	post(JSON.stringify(objects))
+					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 150 + (objOffset * heightCounter), serviceToMaxObj(item), k[i]);
 
 				heightCounter++;
 				} else {
-					post('already exists')
+					post('module/service already exists')
 				}
 				
 			
