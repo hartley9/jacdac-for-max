@@ -19,8 +19,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 733.3333551883698, 146.0, 338.66667675971985, 20.0 ],
-                    "presentation_linecount": 3,
+                    "patching_rect": [ 740.0, 224.0, 339.0, 20.0 ],
                     "text": "<- Click here after connection to spawn JDService objects"
                 }
             },
@@ -28,13 +27,12 @@
                 "box": {
                     "fontface": 1,
                     "id": "obj-44",
-                    "linecount": 2,
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 864.0000257492065, 334.66667664051056, 296.0000088214874, 33.0 ],
-                    "presentation_linecount": 5,
-                    "text": "<- This dict.view shows the friendlyName of each module and each service instance it provides"
+                    "patching_rect": [ 871.0, 412.0, 296.0000088214874, 47.0 ],
+                    "text": "<- This dict.view shows the friendlyName of each physical Jacdac module and the services it provides"
                 }
             },
             {
@@ -43,7 +41,7 @@
                     "maxclass": "dict.view",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 707.0, 272.0000081062317, 141.3333375453949, 161.33333814144135 ]
+                    "patching_rect": [ 714.0, 350.0, 141.3333375453949, 161.33333814144135 ]
                 }
             },
             {
@@ -54,8 +52,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 720.333338022232, 486.66668117046356, 358.0, 33.0 ],
-                    "presentation_linecount": 5,
+                    "patching_rect": [ 727.0, 564.0, 358.0, 33.0 ],
                     "text": "<- An example of connecting a JDServicePotentiometer endpoint to a Max UI object"
                 }
             },
@@ -66,8 +63,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 673.3333534002304, 112.0, 412.0000122785568, 20.0 ],
-                    "presentation_linecount": 4,
+                    "patching_rect": [ 680.0, 190.0, 412.0000122785568, 20.0 ],
                     "text": "<- Restarting jacdac-for-max will clear the service map dictionary and "
                 }
             },
@@ -79,8 +75,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 730.0, 182.0, 142.0, 47.0 ],
-                    "presentation_linecount": 3,
+                    "patching_rect": [ 737.0, 260.0, 145.0, 47.0 ],
                     "text": "<- You can inspect this object to see the status of the node.script"
                 }
             },
@@ -245,7 +240,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 563.0, 486.66668117046356, 144.0, 22.0 ],
+                    "patching_rect": [ 570.0, 564.0, 144.0, 22.0 ],
                     "text": "p potentiometer_example"
                 }
             },
@@ -267,7 +262,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 639.0, 146.0, 87.0, 22.0 ],
+                    "patching_rect": [ 646.0, 224.0, 87.0, 22.0 ],
                     "text": "serviceObjects"
                 }
             },
@@ -278,7 +273,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 621.0, 111.0, 43.0, 22.0 ],
+                    "patching_rect": [ 628.0, 189.0, 43.0, 22.0 ],
                     "text": "restart"
                 }
             },
@@ -289,7 +284,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 586.0, 82.0, 66.0, 22.0 ],
+                    "patching_rect": [ 593.0, 160.0, 66.0, 22.0 ],
                     "text": "disconnect"
                 }
             },
@@ -300,7 +295,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 563.0, 55.0, 51.0, 22.0 ],
+                    "patching_rect": [ 570.0, 133.0, 51.0, 22.0 ],
                     "text": "connect"
                 }
             },
@@ -311,7 +306,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "dictionary" ],
-                    "patching_rect": [ 563.0, 180.0, 163.0, 22.0 ],
+                    "patching_rect": [ 570.0, 258.0, 163.0, 22.0 ],
                     "text": "jacdac-for-max"
                 }
             },
@@ -333,8 +328,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 621.0, 56.0, 142.0, 20.0 ],
-                    "text": "<- Click connect first"
+                    "patching_rect": [ 628.0, 134.0, 361.0, 20.0 ],
+                    "text": "<- Click connect after your jacdac device is plugged in"
                 }
             }
         ],
