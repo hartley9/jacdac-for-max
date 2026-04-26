@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: node_content
+
+      - name: Create release zip
+        run: |
+          zip -r ../jacdac-for-max-${{ github.ref_name }}.zip . \
+            --exclude "*.git*" \
+            --exclude "node_content/src/*" \
+            --exclude "*.DS_Store"
+        working-directory: .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: jacdac-for-max-${{ github.ref_name }}.zip
+          generate_release_notes: true
