@@ -46,7 +46,7 @@ jacdac-for-max/
 ```
 This compiles the native Node.js modules on your machine (required to avoid macOS security warnings). You only need to do this once.
 
-3. **Open the project** — launch Max and open `jacdac-for-max.maxproj`
+3. **Open the starter patch** — launch Max and open `starter/Jacdac-for-Max Starter Patch.maxpat`
 
 4. **Connect your Jacdac device** via USB
 
