@@ -3,11 +3,11 @@
 
 **Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media. 
 
-This project combines Node.js scripts with custom Max objects to provide real-time sensor data and control over 40+ Jacdac services including accelerometers, buttons, gamepads, temperature sensors, and more.
+This project combines Node.js scripts with custom Max objects to provide real-time sensor data and control over 30+ Jacdac services including accelerometers, buttons, gamepads, temperature sensors, and more.
 
 ## Features
 
-- **40+ pre-built Max objects** for common Jacdac services
+- **30+ pre-built Max objects** for common Jacdac services
 - **Auto-generation** of Max objects from Jacdac service definitions
 - **Real-time sensor data** streaming directly to Max patches
 - **Easy integration** - just add objects to your Max patch and connect devices
@@ -23,7 +23,7 @@ jacdac-for-max/
 ├── max_objects/          # Generated Max objects (one per Jacdac service)
 │   ├── JDServiceAccelerometer.maxpat
 │   ├── JDServiceButton.maxpat
-│   └── ... (40+ more)
+│   └── ... (30+ more)
 ├── js_objects/           # JavaScript/TypeScript utilities
 ├── examples/             # Example Max patches
 └── jacdac-for-max.maxproj  # Main Max project
