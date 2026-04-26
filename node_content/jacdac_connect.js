@@ -126,7 +126,6 @@ function generateQualNameMap(){
 maxApi.addHandler("identify", () => {identify()})
 function identify(devFriendlyName){
 
-  console.log('in device')
   console.log(devFriendlyName)
   const devices = bus.devices();
   devices.forEach(dev =>{
@@ -146,12 +145,8 @@ function identify(devFriendlyName){
 
 maxApi.addHandler("descriptions", () => {returnDeviceDescriptions()})
 function returnDeviceDescriptions(){
-  //const devices = bus.devices();
-
-  let stringToReturn = '';
-
+  
   let deviceDescriptionDict = new Object();
-
 
   for (const device of devices){
     deviceDescriptionDict[`${device.id}`] = device.describe();
