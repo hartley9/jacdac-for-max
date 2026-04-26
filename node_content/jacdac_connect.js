@@ -1,3 +1,7 @@
+const path = require('path');
+process.env.NODE_PATH = path.resolve(__dirname, 'node_modules');
+require('module').Module._initPaths();
+
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
 const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");
