@@ -1,7 +1,9 @@
 
 # Jacdac-for-Max
 
-**Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media. 
+> **⚠ Experimental** — This project is under active development. Expect breaking changes and incomplete features. macOS only for now; Windows support is in progress.
+
+**Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media.
 
 This project combines Node.js scripts with custom Max objects to provide real-time sensor data and control over 30+ Jacdac services including accelerometers, buttons, gamepads, temperature sensors, and more.
 
@@ -32,6 +34,7 @@ jacdac-for-max/
 ## Quick Start
 
 ### Prerequisites
+- macOS (Windows support coming soon)
 - [Max 8+](https://cycling74.com/products/max)
 - [Node.js 18+](https://nodejs.org/)
 - Jacdac hardware device
