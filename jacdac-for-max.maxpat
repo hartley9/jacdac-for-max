@@ -132,7 +132,7 @@
                 "box": {
                     "comment": "Jacdac Node.script dump out",
                     "id": "obj-24",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -655,6 +655,7 @@
                         "autostart": 0,
                         "defer": 0,
                         "node_bin_path": "/usr/local/bin/node",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script jacdac_connect.js @node_bin_path /usr/local/bin/node",
@@ -670,7 +671,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-26",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -682,7 +683,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-28",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -694,7 +695,7 @@
                 "box": {
                     "comment": "jacdac packet stream",
                     "id": "obj-30",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -705,7 +706,7 @@
                 "box": {
                     "comment": "device/service map",
                     "id": "obj-31",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -950,7 +951,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

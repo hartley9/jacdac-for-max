@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 154.0, 162.0, 1372.0, 779.0 ],
+        "rect": [ 34.0, 87.0, 1372.0, 779.0 ],
         "subpatcher_template": "template_template",
         "boxes": [
             {
@@ -124,7 +124,7 @@
                                 "box": {
                                     "id": "obj-8",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 72.0, 217.5, 191.0, 22.0 ],
