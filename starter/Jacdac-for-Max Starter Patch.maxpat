@@ -14,6 +14,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-8",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 820.3333375453949, 326.0, 35.0, 22.0 ],
+                    "text": "clear"
+                }
+            },
+            {
+                "box": {
                     "fontface": 1,
                     "id": "obj-45",
                     "maxclass": "comment",
@@ -48,12 +59,11 @@
                 "box": {
                     "fontface": 1,
                     "id": "obj-42",
-                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 727.0, 564.0, 358.0, 33.0 ],
-                    "text": "<- An example of connecting a JDServicePotentiometer endpoint to a Max UI object"
+                    "patching_rect": [ 714.0, 561.0, 358.0, 20.0 ],
+                    "text": "<- More information on connecting a JDService Max objects"
                 }
             },
             {
@@ -95,9 +105,32 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 449.0, 192.0, 727.0, 561.0 ],
+                        "rect": [ 449.0, 192.0, 957.0, 561.0 ],
                         "subpatcher_template": "template_template",
                         "boxes": [
+                            {
+                                "box": {
+                                    "fontface": 1,
+                                    "id": "obj-41",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 480.0, 160.5, 179.0, 60.0 ],
+                                    "text": "HINT: If unsure about the valueu of the outlets, double-click the object to see the value/outlet mapping"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-4",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "", "", "", "" ],
+                                    "patching_rect": [ 357.0, 159.5, 110.0, 22.0 ],
+                                    "text": "JDServiceHumidity"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-12",
@@ -127,8 +160,8 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 72.0, 217.5, 191.0, 22.0 ],
-                                    "text": "JDServiceRotaryEncoder UG40_1"
+                                    "patching_rect": [ 72.0, 217.5, 143.0, 22.0 ],
+                                    "text": "JDServiceRotaryEncoder"
                                 }
                             },
                             {
@@ -240,8 +273,8 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 570.0, 564.0, 144.0, 22.0 ],
-                    "text": "p potentiometer_example"
+                    "patching_rect": [ 528.0, 560.0, 183.0, 22.0 ],
+                    "text": "p connecting_JDService_objects"
                 }
             },
             {
@@ -331,6 +364,17 @@
                     "patching_rect": [ 628.0, 134.0, 361.0, 20.0 ],
                     "text": "<- Click connect after your jacdac device is plugged in"
                 }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 714.0, 320.0, 24.0, 24.0 ]
+                }
             }
         ],
         "lines": [
@@ -362,6 +406,18 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-43", 0 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-43", 0 ],
+                    "source": [ "obj-9", 0 ]
                 }
             }
         ],
