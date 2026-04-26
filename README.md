@@ -36,7 +36,7 @@ jacdac-for-max/
 - [Node.js 18+](https://nodejs.org/)
 - Jacdac hardware device
 
-### Setup
+### Setup — macOS
 
 1. **Download** the latest release zip from the [Releases page](https://github.com/hartley9/jacdac-for-max/releases) and extract it into your Max Library folder (`~/Documents/Max 8/Library/` or `~/Documents/Max 9/Library/`)
 
@@ -53,6 +53,24 @@ This compiles the native Node.js modules on your machine (required to avoid macO
 5. **Run the server** inside Max (start the node.js context)
 
 6. **Use the Max objects** — drag them into your patch to stream sensor data
+
+### Setup — Windows
+
+1. **Install Node.js** from [nodejs.org](https://nodejs.org/). During installation, check **"Automatically install the necessary tools"** — this installs the C++ build tools required to compile native modules.
+
+2. **Download** the latest release zip from the [Releases page](https://github.com/hartley9/jacdac-for-max/releases) and extract it into your Max Library folder (`Documents\Max 8\Library\` or `Documents\Max 9\Library\`)
+
+3. **Install dependencies** — double-click `setup.bat` inside the extracted folder. A terminal window will open and install the required modules. You only need to do this once.
+
+4. **USB driver** — if your Jacdac device is not detected, you may need to install the WinUSB driver using [Zadig](https://zadig.akeo.ie/). Select your Jacdac device and install the WinUSB driver.
+
+5. **Open the starter patch** — launch Max and open `starter\Jacdac-for-Max Starter Patch.maxpat`
+
+6. **Connect your Jacdac device** via USB
+
+7. **Run the server** inside Max (start the node.js context)
+
+8. **Use the Max objects** — drag them into your patch to stream sensor data
 
 ## Development
 
