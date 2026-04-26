@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "npx ts-node --transpile-only ./src/maxServiceObjectGenerator/generator.ts ./src/maxpatGenerator/maxPatGenerator.ts",
-    "generatePats": "npx ts-node --transpile-only ./src/maxpatGenerator/maxPatGenerator.ts",
+    "generateNodeScripts": "npx ts-node --transpile-only ./src/maxServiceObjectGenerator/generator.ts ./src/maxpatGenerator/maxPatGenerator.ts",
+    "generateMaxPatches": "npx ts-node --transpile-only ./src/maxpatGenerator/maxPatGenerator.ts",
     "rimraf": "npx ts-node --transpile-only ./src/maxServiceObjectGenerator/clearOutputDir.ts",
     "build": "tsc"
   },
