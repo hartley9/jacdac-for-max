@@ -6,7 +6,7 @@
 const fsi = require("fs");
 const path = require("path");
 
-const directory = "./src/maxServiceObjectGenerator/autogen_src/";
+const directory = "./src/max_service_object_generator/autogen_src/";
 
 fsi.readdir(directory, (err, files) => {
   if (err) throw err;

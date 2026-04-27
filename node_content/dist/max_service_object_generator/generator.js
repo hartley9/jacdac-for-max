@@ -51,7 +51,7 @@ const generateFiles = () => {
             });
             const flatRes = codeLines.join('\n\n');
             // write content to files 
-            const prefix = './src/maxServiceObjectGenerator/autogen_src/';
+            const prefix = './src/max_service_object_generator/autogen_src/';
             // add imports to content suf
             const rx = /(?<=jacdac\.)([^\s]*)(?=,)/gm;
             //console.log('str: ', str)
@@ -208,7 +208,7 @@ function generateServiceMapFile(services) {
     });
     serviceMapFunctionString += '\n}\n';
     serviceMapFunctionString += 'export {}';
-    const prefix = './src/maxServiceObjectGenerator/autogen_src/';
+    const prefix = './src/max_service_object_generator/autogen_src/';
     const filename = 'serviceMap';
     const filecontent = serviceMapFunctionString;
     fs.writeFile(prefix + `${filename}.ts`, filecontent, function (err) {

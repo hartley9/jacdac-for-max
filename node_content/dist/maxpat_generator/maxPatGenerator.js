@@ -315,7 +315,7 @@ function generateOutlets(service, registers, routeObject, registersEvent, routeE
 function addMaxObjectObject(name, params) {
 }
 function writeFile(filename, content) {
-    const prefix = './src/maxpatGenerator/autogen_patches/';
+    const prefix = './src/maxpat_generator/autogen_patches/';
     const filecontent = JSON.stringify(initJSON);
     fs.writeFile(prefix + `${filename}.maxpat`, JSON.stringify(content), function (err) {
         if (err) {

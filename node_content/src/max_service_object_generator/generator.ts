@@ -87,7 +87,7 @@ const generateFiles = () => {
         
 
         // write content to files 
-        const prefix = './src/maxServiceObjectGenerator/autogen_src/'
+        const prefix = './src/max_service_object_generator/autogen_src/'
 
         // add imports to content suf
         const rx = /(?<=jacdac\.)([^\s]*)(?=,)/gm
@@ -330,7 +330,7 @@ function generateServiceMapFile(services){
     serviceMapFunctionString += 'export {}'
 
     
-    const prefix = './src/maxServiceObjectGenerator/autogen_src/'
+    const prefix = './src/max_service_object_generator/autogen_src/'
 
     const filename = 'serviceMap'
 

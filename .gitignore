@@ -1,6 +1,6 @@
 node_modules/
 .vscode/
-maxServiceObjectGenerator/output/
+max_service_object_generator/output/
 **/.DS_Store
 **/*.maxsnap
 node_content/node_modules/

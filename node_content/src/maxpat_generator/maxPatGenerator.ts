@@ -472,7 +472,7 @@ function addMaxObjectObject(name: string, params: {}){
 
 
 function writeFile(filename: string, content){
-	const prefix = './src/maxpatGenerator/autogen_patches/'
+	const prefix = './src/maxpat_generator/autogen_patches/'
 
     
 
