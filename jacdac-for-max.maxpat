@@ -654,11 +654,11 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "/usr/local/bin/node",
+                        "node_bin_path": "",
                         "npm_bin_path": "",
                         "watch": 0
                     },
-                    "text": "node.script jacdac_connect.js @node_bin_path /usr/local/bin/node",
+                    "text": "node.script jacdac_connect.js",
                     "textfile": {
                         "filename": "jacdac_connect.js",
                         "flags": 0,

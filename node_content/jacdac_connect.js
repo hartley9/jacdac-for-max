@@ -1,8 +1,25 @@
+process.on('uncaughtException', (err) => {
+    try { require("max-api").post(`jacdac error: ${err.message}`); } catch (_) {}
+    console.error(err);
+    process.exit(1);
+});
+process.on('unhandledRejection', (reason) => {
+    try { require("max-api").post(`jacdac unhandled rejection: ${reason}`); } catch (_) {}
+    console.error(reason);
+});
+
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
 const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");
-const {WebUSB} = require("usb")
-const {SerialPort} = require("serialport")
+
+let WebUSB, SerialPort;
+try {
+    ({ WebUSB } = require("usb"));
+    ({ SerialPort } = require("serialport"));
+} catch (err) {
+    maxApi.post(`jacdac: failed to load native modules — did you run setup.bat? (${err.message})`);
+    process.exit(1);
+}
 const readline = require("readline")
 
 const rl = readline.createInterface({
@@ -25,8 +42,14 @@ rl.on("line", async line => {
 //const bus = new JDBus([createNodeWebSerialTransport(SerialPort)]);
 //const serialport = require("serialport");
 
-const options = createNodeUSBOptions(WebUSB);
-const bus = createUSBBus(options);
+let bus;
+try {
+    const options = createNodeUSBOptions(WebUSB);
+    bus = createUSBBus(options);
+} catch (err) {
+    maxApi.post(`jacdac: USB bus init failed — ${err.message}`);
+    process.exit(1);
+}
 
 const devices = bus.devices();
 
@@ -34,7 +57,11 @@ let devDescriptions = []
 let deviceList = [];
 let qualNameMap = {}
 
-bus.connected ? bus.disconnect() : bus.connect();
+try {
+    bus.connected ? bus.disconnect() : bus.connect();
+} catch (err) {
+    maxApi.post(`jacdac: bus connect failed — ${err.message}`);
+}
 
 // am i connected?
 // track connection state
