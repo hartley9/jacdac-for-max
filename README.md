@@ -1,7 +1,9 @@
 
 # Jacdac-for-Max
 
-**Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media. 
+> **⚠ Experimental** — This project is under active development. Expect breaking changes and incomplete features. macOS only for now; Windows support is in progress.
+
+**Jacdac-for-Max** enables you to connect [**Jacdac**](https://aka.ms/jacdac) hardware devices to [**Max/MSP**](https://cycling74.com/products/max), a visual programming language for music, audio, and interactive media.
 
 This project combines Node.js scripts with custom Max objects to provide real-time sensor data from 30+ Jacdac services including accelerometers, buttons, gamepads, temperature sensors, and more.
 
@@ -17,6 +19,7 @@ This project combines Node.js scripts with custom Max objects to provide real-ti
 
 ```
 jacdac-for-max/
+├── jacdac-for-max.maxpat  # Main Max patch
 ├── node_content/          # Node.js server and TypeScript source
 │   ├── src/              # Source code for generators
 │   ├── services/         # Generated Node.js service modules, this code sits inside a JDService object when a relevent service is detected
@@ -26,13 +29,13 @@ jacdac-for-max/
 │   ├── JDServiceButton.maxpat
 │   └── ... (30+ more)
 ├── js_objects/           # JavaScript/TypeScript utilities
-├── examples/             # Example Max patches
-└── jacdac-for-max.maxproj  # Main Max project
+└── starter/              # Starter Max patches
 ```
 
 ## Quick Start
 
 ### Prerequisites
+- macOS (Windows support coming soon)
 - [Max 8+](https://cycling74.com/products/max)
 - [Node.js 18+](https://nodejs.org/)
 - Jacdac hardware device
@@ -43,9 +46,13 @@ jacdac-for-max/
 
 2. **Install dependencies** — open Terminal and run:
 ```bash
+# Max 8
+~/Documents/Max\ 8/Library/jacdac-for-max/setup.sh
+
+# Max 9
 ~/Documents/Max\ 9/Library/jacdac-for-max/setup.sh
 ```
-This compiles the native Node.js modules on your machine (required to avoid macOS security warnings). You only need to do this once.
+This runs `npm install` to install and compile dependencies locally (required to avoid macOS security warnings). You only need to do this once.
 
 3. **Open the starter patch** — launch Max and open `starter/Jacdac-for-Max Starter Patch.maxpat`
 
@@ -63,16 +70,16 @@ Generate Max objects and Node.js modules from Jacdac service definitions:
 
 ```bash
 cd node_content
-npm run generate
+npm run generateNodeScripts
 ```
 
 This regenerates both Node.js snippets and all Max objects based on the latest Jacdac services.
 
 Other build commands:
 ```bash
-npm run generatePats          # Generate only Max patches
+npm run generateMaxPatches    # Generate only Max patches
 npm run rimraf                # Clear output directory
-npm build                     # Build TypeScript to JavaScript
+npm run build                 # Build TypeScript to JavaScript
 ```
 
 ### Using VS Code
@@ -85,13 +92,13 @@ code .
 
 ## Troubleshooting
 
-### `npm run generate` crashes
+### `npm run generateNodeScripts` crashes
 - Run `npm install` to ensure local dependencies are installed
 - The `--transpile-only` flag is already configured
-- Check that `node_modules/@cspotcode/source-map-support` exists
+- Check that `node_content/node_modules/@cspotcode/source-map-support` exists
 
 ### Max objects not updating
-- Run `npm run generate` again
+- Run `npm run generateNodeScripts` again
 - Restart the Max JS context (Cmd-Period on Mac)
 - Clear Max's cache: **Max > Preferences > File Preferences**
 

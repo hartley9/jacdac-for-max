@@ -9,9 +9,33 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 87.0, 1372.0, 779.0 ],
+        "rect": [ 34.0, 87.0, 1018.0, 779.0 ],
         "subpatcher_template": "template_template",
         "boxes": [
+            {
+                "box": {
+                    "format": 6,
+                    "id": "obj-11",
+                    "maxclass": "flonum",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 112.0, 257.0, 50.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "format": 6,
+                    "id": "obj-7",
+                    "maxclass": "flonum",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 179.0, 257.0, 50.0, 22.0 ]
+                }
+            },
             {
                 "box": {
                     "id": "obj-8",
@@ -116,7 +140,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 480.0, 160.5, 179.0, 60.0 ],
+                                    "patching_rect": [ 480.0, 160.5, 180.0, 60.0 ],
                                     "text": "HINT: If unsure about the valueu of the outlets, double-click the object to see the value/outlet mapping"
                                 }
                             },
@@ -125,8 +149,8 @@
                                     "id": "obj-4",
                                     "maxclass": "newobj",
                                     "numinlets": 0,
-                                    "numoutlets": 4,
-                                    "outlettype": [ "", "", "", "" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
                                     "patching_rect": [ 357.0, 159.5, 110.0, 22.0 ],
                                     "text": "JDServiceHumidity"
                                 }
@@ -375,6 +399,28 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 714.0, 320.0, 24.0, 24.0 ]
                 }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "linecount": 4,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 100.0, 150.0, 100.0, 62.0 ],
+                    "text": "JDServicePotentiometer LC65.potentiometer_0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 5,
+                    "numoutlets": 0,
+                    "patching_rect": [ 114.0, 309.0, 149.0, 22.0 ],
+                    "text": "JDServiceLed KN49.led_0"
+                }
             }
         ],
         "lines": [
@@ -382,6 +428,12 @@
                 "patchline": {
                     "destination": [ "obj-43", 0 ],
                     "source": [ "obj-1", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-11", 0 ]
                 }
             },
             {
@@ -406,6 +458,12 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 2 ],
+                    "source": [ "obj-7", 0 ]
                 }
             },
             {
