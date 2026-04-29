@@ -10,7 +10,7 @@ process.on('unhandledRejection', (reason) => {
 
 const maxApi = require("max-api");
 const {serviceMap} = require('./services/serviceMap')
-const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, DISCONNECT, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");
+const {ControlReg, CONNECTION_STATE, DEVICE_ANNOUNCE, createNodeUSBOptions, createNodeWebSerialTransport, createUSBBus, DEVICE_RESTART, DEVICE_DISCONNECT, DEVICE_CONNECT, createWebSerialTransport, JDBus} = require("jacdac-ts");
 
 let WebUSB, SerialPort;
 try {
@@ -63,13 +63,54 @@ try {
     maxApi.post(`jacdac: bus connect failed — ${err.message}`);
 }
 
-// am i connected?
-// track connection state
+let _reconnectDelay = 2000;
+let _reconnectTimer = null;
+let _hasConnected = false;
+let _busStarted = false;
+
+function scheduleReconnect() {
+    if (_reconnectTimer) return;
+    _reconnectTimer = setTimeout(async () => {
+        _reconnectTimer = null;
+        if (bus.connected) { _reconnectDelay = 2000; return; }
+        try {
+            maxApi.post('jacdac: reconnecting...');
+            await bus.connect(true);
+        } catch (err) {
+            // background-mode connects throw a cancel error when no paired device
+            // is available — that's expected when the USB cable is unplugged, so
+            // don't surface it. just keep retrying quietly.
+            _reconnectDelay = Math.min(_reconnectDelay * 2, 30000);
+            scheduleReconnect();
+            return;
+        }
+        if (!bus.connected) {
+            // background connect returned but didn't connect — keep retrying
+            _reconnectDelay = Math.min(_reconnectDelay * 2, 30000);
+            scheduleReconnect();
+        }
+    }, _reconnectDelay);
+}
+
 bus.on(CONNECTION_STATE, () => {
-    console.log(`connected: ${bus.connected}`)
-	if (bus.connected === true){
-    console.clear(); 
-  }
+    console.log(`connected: ${bus.connected}`);
+    if (bus.connected) {
+        console.clear();
+        _reconnectDelay = 2000;
+        if (_reconnectTimer) { clearTimeout(_reconnectTimer); _reconnectTimer = null; }
+        if (!_busStarted) {
+            bus.start();
+            _busStarted = true;
+        }
+        if (!_hasConnected) {
+            _hasConnected = true;
+            maxApi.post('jacdac: connected');
+        } else {
+            maxApi.post('jacdac: reconnected');
+        }
+    } else if (_hasConnected) {
+        scheduleReconnect();
+    }
 })
 
 // Qualtified name --> service mapper
@@ -124,11 +165,6 @@ bus.on(DEVICE_DISCONNECT, (device) => {
   console.log(device.name);
 
   generateQualNameMap();
-})
-bus.on(DISCONNECT, evt => {
-
-	console.log('DISCONNECT');
-	console.log(evt);
 })
 
 
