@@ -12,16 +12,12 @@ function setJDServiceToMaxMap(){
 }
 
 function clearServiceObjects(){
-	
-	var k = qualNameMap.getkeys();
-	for (var obj=0; obj<k.length; obj++){
-		post('key')
-		post(k[obj]);
-		
-		this.patcher.parentpatcher.remove(objects[k[obj]])
+	for (var key in objects){
+		if (objects[key]){
+			this.patcher.parentpatcher.remove(objects[key]);
+		}
 	}
-	
-	objects = {}
+	objects = {};
 }
 function serviceToMaxObj(service){
 	// TODO USE JSON MAP INSTEAD OF BELOW
@@ -69,15 +65,15 @@ function getServiceObjects(){
 		if (serviceToMaxObj(item) !== undefined && serviceToMaxObj(item) !== null && serviceToMaxObj(item).length > 0)
 			{
 				// does device && service max object instance already exist?
-				if (objects[k[i]] === undefined){
+				//if (objects[k[i]] === undefined){
 					
 					// var nameOfObjectToSpawn =
 					objects[k[i]] = this.patcher.parentpatcher.newdefault(100, 150 + (objOffset * heightCounter), serviceToMaxObj(item), k[i]);
 
 				heightCounter++;
-				} else {
+				/* } else {
 					post('module/service already exists')
-				}
+				} */
 				
 			
 			}else {
