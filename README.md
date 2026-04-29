@@ -108,6 +108,12 @@ code .
 - [Max Documentation](https://cycling74.com/docs/max8)
 - [Jacdac Examples](https://aka.ms/jacdac-devices)
 
+## Publication
+
+Jacdac-for-Max was presented at NIME 2023:
+
+> Kobi Hartley, Steve Hodges, and Joe Finney. **Jacdac-for-Max: Plug-and-Play Physical Prototyping of Musical Interfaces.** In *Proceedings of the International Conference on New Interfaces for Musical Expression (NIME '23)*, Mexico City, Mexico, 31 May – 2 June 2023. [PDF](https://nime.org/proceedings/2023/nime2023_53.pdf)
+
 ## License
 
 See [LICENSE](./LICENSE) for details.
